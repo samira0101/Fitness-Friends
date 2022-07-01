@@ -88,3 +88,13 @@ router.get("/post/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// Render the login page. Redirect to the home page if the user is logged in.
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login");
+});

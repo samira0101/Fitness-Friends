@@ -56,3 +56,6 @@ app.set("view engine", "handlebars");
 // Have Express parse JSON and string data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Tell the app to handle sessions with Express Session.
+app.use(session(sess));

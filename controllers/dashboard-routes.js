@@ -106,3 +106,11 @@ router.get("/edituser", withAuth, (req, res) => {
       const user = dbUserData.get({ plain: true });
       res.render("edit-user", { user, loggedIn: true });
     })
+    .catch((err) => {
+      // if there is a server error, return that error
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+module.exports = router;

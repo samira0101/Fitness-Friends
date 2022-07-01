@@ -45,3 +45,6 @@ const sess = {
 const app = express();
 // Define the port for the server
 const PORT = process.env.PORT || 3001;
+
+// Set a path to the public directory for static files on the server.
+app.use(express.static(path.join(__dirname, "public")));

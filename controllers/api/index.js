@@ -9,3 +9,11 @@ const userRoutes = require("./user-routes");
 const postRoutes = require("./post-routes");
 // Comment Routes
 const commentRoutes = require("./comment-routes");
+
+// Create a routing path for the API to follow, e.g. api/users/
+router.use("/users", userRoutes);
+router.use("/posts", postRoutes);
+router.use("/comments", commentRoutes);
+
+// Export the router
+module.exports = router;

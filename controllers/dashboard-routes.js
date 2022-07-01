@@ -65,3 +65,20 @@ router.get("/edit/:id", withAuth, (req, res) => {
       },
     ],
   })
+    .then((dbPostData) => {
+      // Return an error if no post with that id exists.
+      if (!dbPostData) {
+        res
+          .status(404)
+          .json({ message: "This id was not found in any posts." });
+        return;
+      }
+      // serialize data before passing to template
+      const post = dbPostData.get({ plain: true });
+      res.render("edit-post", { post, loggedIn: true });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});

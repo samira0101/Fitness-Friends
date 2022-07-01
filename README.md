@@ -57,7 +57,7 @@ SO THAT I can track my workout journey through posts, and be able to navigate ot
 ## Appearance
 ---
 ## GitHub Repository
----
+https://github.com/samira0101/Fitness-Friends
 ## Deployed Application
 ---
 ## Contributors

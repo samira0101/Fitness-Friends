@@ -43,3 +43,28 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// GET api/posts/:id -- get a single post by id
+router.get("/:id", (req, res) => {
+  Post.findOne({
+    where: {
+      // specify the post id parameter in the query
+      id: req.params.id,
+    },
+    // Query configuration, as with the get all posts route
+    attributes: ["id", "post_text", "title", "created_at"],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
+  })

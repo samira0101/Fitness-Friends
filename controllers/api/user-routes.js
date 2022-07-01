@@ -54,3 +54,20 @@ router.get("/:id", (req, res) => {
       },
     ],
   })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        // if no user is found, return an error
+        res
+          .status(404)
+          .json({ message: "There are no users with this id found." });
+        return;
+      }
+      // otherwise, return the data for the requested user
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      // if there is a server error, return that error
+      console.log(err);
+      res.status(500).json(err);
+    });
+});

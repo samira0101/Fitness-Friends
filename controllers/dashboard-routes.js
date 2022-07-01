@@ -94,3 +94,15 @@ router.get("/edituser", withAuth, (req, res) => {
       id: req.session.user_id,
     },
   })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        // if no user is found, return an error
+        res
+          .status(404)
+          .json({ message: "There are no users with this id found." });
+        return;
+      }
+      // otherwise, return the data for the requested user
+      const user = dbUserData.get({ plain: true });
+      res.render("edit-user", { user, loggedIn: true });
+    })

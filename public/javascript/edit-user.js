@@ -22,3 +22,21 @@ async function editFormHandler(event) {
     userUpdate = JSON.parse(userUpdate)
 
 
+    // use the update route to update the post
+    const response = await fetch(`/api/users/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(userUpdate),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    // Redirect to the dashboard page if the edit operation was successful; else, display the error.
+    if (response.ok) {
+        document.location.replace('/dashboard');
+        // otherwise, display the error
+        } else {
+        alert(response.statusText);
+        }
+
+  }
+  document.querySelector('.edit-user-form').addEventListener('submit', editFormHandler);

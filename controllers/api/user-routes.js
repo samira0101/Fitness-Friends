@@ -175,3 +175,28 @@ router.put("/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// DELETE /api/users/1 -- delete an existing user
+router.delete("/:id", withAuth, (req, res) => {
+  // destroy method
+  User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res
+          .status(404)
+          .json({ message: "There are no users with this id found." });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+module.exports = router;

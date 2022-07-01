@@ -17,3 +17,15 @@ async function newFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
+
+    // If the response is satisfactory, reload the page, which will now display the most recent post in the user's post list.
+    if (response.ok) {
+      document.location.replace('/dashboard');
+      // or else, display the error
+    } else {
+      alert(response.statusText);
+    }
+  }
+  
+  //The new post submit button has an event listener.
+  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);

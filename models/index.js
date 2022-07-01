@@ -16,3 +16,10 @@ User.hasMany(Post, {
 Post.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
+// Comment-User relationship
+Comment.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'cascade',
+    hooks:true
+});

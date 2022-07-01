@@ -82,3 +82,9 @@ router.get("/post/:id", (req, res) => {
         loggedIn: req.session.loggedIn,
       });
     })
+    .catch((err) => {
+      // if a server error occured, return an error
+      console.log(err);
+      res.status(500).json(err);
+    });
+});

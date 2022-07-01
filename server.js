@@ -59,3 +59,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Tell the app to handle sessions with Express Session.
 app.use(session(sess));
+
+// Give the server the path to the routes
+app.use(routes);

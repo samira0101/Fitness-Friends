@@ -82,3 +82,15 @@ router.get("/edit/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// A route to edit the logged in user
+router.get("/edituser", withAuth, (req, res) => {
+  // To acquire a single user depending on parameters, access the User model and use the findOne() function.
+  User.findOne({
+    // when the data is sent back, exclude the password property
+    attributes: { exclude: ["password"] },
+    where: {
+      // use id as the parameter for the request
+      id: req.session.user_id,
+    },
+  })

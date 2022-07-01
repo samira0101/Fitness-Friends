@@ -40,3 +40,8 @@ const sess = {
     db: sequelize,
   }),
 };
+
+// Initialize the server
+const app = express();
+// Define the port for the server
+const PORT = process.env.PORT || 3001;

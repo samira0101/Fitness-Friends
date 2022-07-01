@@ -8,7 +8,6 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
 
     
-
     if (username && email && password) {
          // POST the new user to the user table in the database
         const response = await fetch('/api/users', {

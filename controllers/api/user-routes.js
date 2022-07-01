@@ -71,3 +71,29 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// POST /api/users -- add a new user
+router.post("/", (req, res) => {
+  // creating method
+
+  User.create({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.password,
+  })
+    // Return the user data to the client as confirmation, then save the session.
+    .then((dbUserData) => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+
+        res.json(dbUserData);
+      });
+    })
+    // if server error, return that error
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});

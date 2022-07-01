@@ -29,3 +29,14 @@ io.on("connection", () => {
   /* … */
 });
 server.listen(3000);
+
+// Initialize sessions
+const sess = {
+  secret: "Super secret secret",
+  cookie: { maxAge: 7200000 },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};

@@ -37,3 +37,13 @@ User.hasMany(Comment, {
     onDelete: 'cascade',
     hooks:true
 });
+
+// Post-Comment relationship
+Post.hasMany(Comment, {
+    foreignKey: 'post_id',
+    onDelete: 'cascade',
+    hooks:true
+})
+
+// Export the modules
+module.exports = { User, Post, Comment };

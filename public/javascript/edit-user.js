@@ -15,3 +15,10 @@ async function editFormHandler(event) {
         password = '"password": "' + password + '"';
     }
     const id = document.querySelector('input[name="user-id"]').value;
+
+    // Create a string with the updates that were provided.
+    let userUpdate = '{' + [username, email, password].filter(value => value).join(',') + '}';
+    // Create the JSON parsed object
+    userUpdate = JSON.parse(userUpdate)
+
+

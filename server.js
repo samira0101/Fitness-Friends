@@ -48,3 +48,7 @@ const PORT = process.env.PORT || 3001;
 
 // Set a path to the public directory for static files on the server.
 app.use(express.static(path.join(__dirname, "public")));
+
+// Set handlebars as the template engine for the server
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");

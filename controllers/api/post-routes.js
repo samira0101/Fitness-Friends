@@ -35,3 +35,11 @@ router.get("/", (req, res) => {
       },
     ],
   })
+    // return the posts
+    .then((dbPostData) => res.json(dbPostData))
+    // if there was a server error, return the error
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});

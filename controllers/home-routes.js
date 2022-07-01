@@ -68,3 +68,17 @@ router.get("/post/:id", (req, res) => {
       },
     ],
   })
+    .then((dbPostData) => {
+      // if no post by that id exists, return an error
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
+      }
+      // serialise the data from the post, omitting any unnecessary sequelize meta data
+      const post = dbPostData.get({ plain: true });
+      // pass the posts and a session variable into the single post template
+      res.render("single-post", {
+        post,
+        loggedIn: req.session.loggedIn,
+      });
+    })

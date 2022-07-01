@@ -11,9 +11,9 @@ The user can then logout and discontinue their session, or the session can be ti
 ## Technologies
 The packages required to run are:
 
--bcrypt, connect-session-sequelize, dotenv, express , express-handlebars, express-session, mysql2, sequelize and nodemon.
+* bcrypt, connect-session-sequelize, dotenv, express , express-handlebars, express-session, mysql2, sequelize and nodemon.
 
-A database will need to be created first then seeded wih data.
+A database will need to be created first then seeded with data.
 
 On Heroku, go to the webpage. As a guest, you can read some workout information and click on links; as a registered user, you may add your own posts. You can also alter the names and content of your own posts, as well as delete them. You can also change your password, email, and username.
 
@@ -61,8 +61,10 @@ SO THAT I can track my workout journey through posts, and be able to navigate ot
 ## Deployed Application
 ---
 ## Contributors
----
----
+https://github.com/samira0101
+
+https://github.com/Humayra-Hayern
+
 # References
 1. https://solveforums.msomimaktaba.com/threads/solved-react-sequelize-server-responding-with-404-but-works-localy.615905/
 2. https://expressjs.com/en/guide/routing.html

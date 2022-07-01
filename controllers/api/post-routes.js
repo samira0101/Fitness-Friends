@@ -7,3 +7,31 @@ const { User, Post, Comment } = require("../../models");
 const sequelize = require("../../config/connection");
 // Authorization Helper
 const withAuth = require("../../utils/auth");
+
+// Routes
+
+// GET api/posts/ -- get all posts
+router.get("/", (req, res) => {
+  Post.findAll({
+    // Query configuration
+    // Include the post ID, URL, title, and the timestamp from the post creation in the Post database.
+    attributes: ["id", "post_text", "title", "created_at"],
+    // Order the posts from most recent to least
+    order: [["created_at", "DESC"]],
+    // From the User table, include the post creator's user name
+    // From the Comment table, include all comments
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+    ],
+  })

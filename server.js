@@ -52,3 +52,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Set handlebars as the template engine for the server
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
+
+// Have Express parse JSON and string data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));

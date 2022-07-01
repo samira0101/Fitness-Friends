@@ -147,3 +147,17 @@ router.post("/logout", withAuth, (req, res) => {
     res.status(404).end();
   }
 });
+
+// PUT /api/users/1 -- update an existing user
+router.put("/:id", withAuth, (req, res) => {
+  // update method
+
+  // allowing for updating only key/value pairs that are passed through
+  User.update(req.body, {
+    // since there is a hook to hash only the password, the option is noted here
+    individualHooks: true,
+    // use the id as the parameter for the individual user to be updated
+    where: {
+      id: req.params.id,
+    },
+  })

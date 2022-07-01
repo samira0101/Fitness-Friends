@@ -27,3 +27,30 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// GET /api/users/1 -- get a single user by id
+router.get("/:id", (req, res) => {
+  // To acquire a single user depending on parameters, access the User model and use the findOne() function.
+  User.findOne({
+    // when the data is sent back, exclude the password property
+    attributes: { exclude: ["password"] },
+    where: {
+      // use id as the parameter for the request
+      id: req.params.id,
+    },
+    // include the user's own posts, as well as the posts on which he/she has commented and uploaded.
+    include: [
+      {
+        model: Post,
+        attributes: ["id", "title", "post_text", "created_at"],
+      },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+        include: {
+          model: Post,
+          attributes: ["title"],
+        },
+      },
+    ],
+  })

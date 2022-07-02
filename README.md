@@ -67,7 +67,9 @@ SO THAT I can track my workout journey through posts, and be able to navigate ot
 ## GitHub Repository
 https://github.com/samira0101/Fitness-Friends
 ## Deployed Application
----
+https://fitness-friends2.herokuapp.com/
+## Presentation
+https://www.canva.com/design/DAE99YIqGAY/tsY4VsBMXnFAoGWsXcZvrw/edit?utm_content=DAE99YIqGAY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 ## Contributors
 https://github.com/samira0101
 

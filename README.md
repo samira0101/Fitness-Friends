@@ -54,8 +54,16 @@ SO THAT I can track my workout journey through posts, and be able to navigate ot
 
 * Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
 ```
-## Appearance
----
+## Screenshots
+
+![](/public/images/Screenshot1.png)
+![](/public/images/Screenshot2.png)
+![](/public/images/Screenshot3.png)
+![](/public/images/Screenshot4.png)
+![](/public/images/Screenshot5.png)
+![](/public/images/Screenshot6.png)
+![](/public/images/Screenshot7.png)
+
 ## GitHub Repository
 https://github.com/samira0101/Fitness-Friends
 ## Deployed Application

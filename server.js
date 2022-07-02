@@ -23,12 +23,12 @@ const helpers = require("./utils/helpers");
 // Initialize handlebars for the html templates
 const hbs = exphbs.create({ helpers });
 
-const server = require("http").createServer(express);
-const io = require("socket.io")(server);
-io.on("connection", () => {
-  /* … */
-});
-server.listen(3000);
+// const server = require("http").createServer(express);
+// const io = require("socket.io")(server);
+// io.on("connection", () => {
+//   /* … */
+// });
+// server.listen(3001);
 
 // Initialize sessions
 const sess = {
